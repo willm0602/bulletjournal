@@ -7,3 +7,6 @@ def home(req: HttpRequest):
 
 def signup(req: HttpRequest):
     return render(req, "signup.html")
+
+def login(req: HttpRequest):
+    return render(req, "login.html")
