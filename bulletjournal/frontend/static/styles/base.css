@@ -1,0 +1,7 @@
+:root{
+    --site-black: #060409;
+}
+
+body{
+    background-color: var(--site-black);
+}
