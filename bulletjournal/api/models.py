@@ -10,3 +10,13 @@ class User(models.Model):
 class Habit(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length = 255)
+class Task(models.Model): # This is a subclass of the model.Model class
+    # Define fields
+    task_text = models.CharField(max_length = 200)
+    completed = models.BooleanField()
+
+    # Getter functions
+    def __name__(self):
+        return self.task_text
+    def __done__(self):
+        return self.completed

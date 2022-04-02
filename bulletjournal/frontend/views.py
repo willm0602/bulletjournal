@@ -1,7 +1,7 @@
 from os import access
 from django.http import HttpRequest
 from django.shortcuts import render
-from api.models import Habit
+from api.models import Habit, Task
 
 # Create your views here.
 def home(req: HttpRequest):
@@ -9,6 +9,12 @@ def home(req: HttpRequest):
     return render(req, "home.html", context={
         "access_token": req.session.get("access")
     })
+
+def todo_add(req: HttpRequest):
+    tasks = Task.objects.all()
+    print(tasks)
+    context = {"tasks": tasks}
+    return render(req, "todolist.html", context)
 
 # def todo_list(request, task_id):
 #     task = get_object_or_404(Task, pk=task_id)
