@@ -38,7 +38,6 @@ def login_attempt(req: HttpRequest):
         return redirect('/')
     return redirect('/login')
 
-<<<<<<< HEAD
 
 def new_habit(req: HttpRequest):
     data = req.POST
@@ -50,7 +49,8 @@ def new_habit(req: HttpRequest):
     habit.save()
     
     return redirect('/habits')
-=======
+
+
 def new_todo_item(req: HttpRequest):
     data = req.POST
     task_name = data.get('task_name') # task_name is the the <name> of the input text
@@ -81,4 +81,3 @@ def new_todo_item(req: HttpRequest):
     # req.session["access"] = access_token
 
     
->>>>>>> 0a3ee6e5912a84f62f7a99fafa5177cdbd5e9bf0
