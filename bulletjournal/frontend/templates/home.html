@@ -6,14 +6,26 @@
 
 {% block content %}
 
-<div class="link" id="todo">
-    <a href="todolist.html">To do list</a>
-</div>
-<div class="link" id="cal">
-    <a href="calendar.html">Calendar</a>
-</div>
-<div class="link" id="habits">
-    <a href="habits.html">Habit tracker</a>
-</div>
+{% if not access_token %}
+    <div class="link" id="signup">
+        <a href="/signup">Sign Up</a>
+    </div>
+    <div class="link" id="login">
+        <a href="/login">Login</a>
+    </div>
 
-{% endblock content %}
+    {% else %}
+
+    <div class="link" id="todo">
+        <a href="todolist.html">To do list</a>
+    </div>
+    <div class="link" id="cal">
+        <a href="calendar.html">Calendar</a>
+    </div>
+    <div class="link" id="habits">
+        <a href="habits.html">Habit tracker</a>
+    </div>
+    
+
+{% endif %}
+{% endblock %}

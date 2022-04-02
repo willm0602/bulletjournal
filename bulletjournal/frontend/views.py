@@ -1,9 +1,14 @@
+from os import access
 from django.http import HttpRequest
 from django.shortcuts import render
+from api.models import Habit
 
 # Create your views here.
 def home(req: HttpRequest):
-    return render(req, "home.html")
+    print(req.session.items())
+    return render(req, "home.html", context={
+        "access_token": req.session.get("access")
+    })
 
 # def todo_list(request, task_id):
 #     task = get_object_or_404(Task, pk=task_id)
@@ -26,3 +31,8 @@ def signup(req: HttpRequest):
 
 def login(req: HttpRequest):
     return render(req, "login.html")
+
+def habit_tracker(req: HttpRequest):
+    access = req.session.get('access')
+    context = {"access": access}
+    return render(req, "habits.html", context)
