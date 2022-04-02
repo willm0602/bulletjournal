@@ -1,7 +1,12 @@
 :root{
-    --site-black: #060409;
+    --site-blue-1: #D4EDED;
+    --site-blue-2: #A8DCD8;
+    --site-blue-3: #60BEB8;
+    --site-blue-4: #35827D;
+    --site-blue-5: #122B2B;
 }
 
 body{
-    background-color: var(--site-black);
+    background-color: var(--site-blue-1);
+    color: var(--site-blue-5)
 }
