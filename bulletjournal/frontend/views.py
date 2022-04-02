@@ -1,9 +1,16 @@
 from django.http import HttpRequest
 from django.shortcuts import render
+from api.models import Task
 
 # Create your views here.
 def home(req: HttpRequest):
     return render(req, "home.html")
+
+def todo_add(req: HttpRequest):
+    tasks = Task.objects.all()
+    print(tasks)
+    context = {"tasks": tasks}
+    return render(req, "todolist.html", context)
 
 # def todo_list(request, task_id):
 #     task = get_object_or_404(Task, pk=task_id)
