@@ -6,7 +6,6 @@
 
 {% block content %}
 
-<<<<<<< HEAD
 {% if not access_token %}
     <div class="link" id="signup">
         <a href="/signup">Sign Up</a>
@@ -14,28 +13,17 @@
     <div class="link" id="login">
         <a href="/login">Login</a>
     </div>
-=======
-<div class="link" id="todo">
-    <a href="todo">To do list</a>
-</div>
-<div class="link" id="cal">
-    <a href="calendar.html">Calendar</a>
-</div>
-<div class="link" id="habits">
-    <a href="habits.html">Habit tracker</a>
-</div>
->>>>>>> 0a3ee6e5912a84f62f7a99fafa5177cdbd5e9bf0
 
     {% else %}
 
     <div class="link" id="todo">
-        <a href="todolist.html">To do list</a>
+        <a href="/todo">To do list</a>
     </div>
     <div class="link" id="cal">
-        <a href="calendar.html">Calendar</a>
+        <a href="/cal">Calendar</a>
     </div>
     <div class="link" id="habits">
-        <a href="habits.html">Habit tracker</a>
+        <a href="/habits">Habit tracker</a>
     </div>
     
 
