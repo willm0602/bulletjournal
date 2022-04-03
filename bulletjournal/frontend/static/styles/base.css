@@ -1,3 +1,5 @@
+/* wdexplorer.com/20-examples-beautiful-css-typography-design/ */
+
 :root{
     --site-blue-1: #D4EDED;
     --site-blue-2: #A8DCD8;
@@ -6,7 +8,32 @@
     --site-blue-5: #122B2B;
 }
 
+h1 { color: --site-blue-2; font-family: 'Helvetica Neue', sans-serif; font-size: 50px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; }
+
+
+h2 { color: --site-blue-5; font-family: 'Helvetica Neue', sans-serif; font-size: 30px; font-weight: 300; line-height: 32px; margin: 0 0 72px; text-align: center; }
+
+
+p { color: --site-blue-4; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; line-height: 24px; margin: 0 0 24px; text-align: justify; text-justify: inter-word; }
+
 body{
+    color: --site-blue-5; font-family: 'Helvetica Neue', sans-serif; font-size: 30px; font-weight: 300; line-height: 32px; margin: 0 0 72px; text-align: center;
     background-color: var(--site-blue-1);
-    color: var(--site-blue-5)
+}
+
+/* No bullet points on list */
+ol { 
+    list-style:none;
+}
+
+.task_complete {
+    font-family: 'Helvetica Neue';
+    border-style: none;
+    background-color: transparent;
+}
+
+button {
+    border-style: none;
+    color: var(--site-blue-5);
+    background-color: transparent;
 }
