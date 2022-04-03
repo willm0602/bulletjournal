@@ -21,9 +21,6 @@ def todo_add(req: HttpRequest):
     context = {"tasks":tasks}
     return render(req, "todolist.html", context)
 
-def get_cal(req: HttpRequest):
-    return render(req, "calendar.html")
-
 # def mark_done(req: HttpRequest):
 #     req.GET.get(tasks)
 #     return render(req, "todolist.html")
@@ -52,4 +49,5 @@ def habit_tracker(req: HttpRequest):
 
 
 def cal(req: HttpRequest):
+    print("now is", datetime.now())
     return render(req, "calendar.html", context={"today": datetime.now()}) 

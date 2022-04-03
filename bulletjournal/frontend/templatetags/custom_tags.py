@@ -28,6 +28,9 @@ def get_cal_num(today: datetime, xy):
     xy = xy.split(',')
     x = xy[0]
     y = xy[1]
+    
+    print(today, '\n\n\n')
+    
     i = today.day - today.weekday()
     
     last_month = today.month - 1

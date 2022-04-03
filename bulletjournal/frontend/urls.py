@@ -8,6 +8,6 @@ urlpatterns = [
     path('login', views.login),
     path('habits', views.habit_tracker),
     path('todo', views.todo_add),
-    path('cal', views.get_cal),
+    path('cal', views.cal),
     # path('mark_done', views.mark_done),
 ]
