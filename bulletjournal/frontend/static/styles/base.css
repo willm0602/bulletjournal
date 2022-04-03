@@ -47,6 +47,14 @@ button {
     color: --site-blue-2; font-family: 'Helvetica Neue', sans-serif; font-size: 20px; font-weight: bold;  text-align: center;
 }
 
+table {
+    font-family: 'Helvetica Neue', sans-serif; font-size: 20px; font-weight: bold;  text-align: center;
+}
+
+th {
+    font-family: 'Helvetica Neue', sans-serif; font-size: 20px; font-weight: bold;  text-align: center;
+}
+
 
 form {
     vertical-align: middle;
