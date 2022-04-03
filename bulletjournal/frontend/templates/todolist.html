@@ -16,52 +16,20 @@
     <!-- <br>
     <br> -->
 </div>
-<div id="display-undone-list">
-    {% for task in undone_tasks %}
-        <span>
-            <form action="/todo" id="undone-task">
-                {% csrf_token %}
-                <p>{{task.task_text}}
-                    <button type="submit" value = True> ✔ </button>
-                    <button type="submit" value = False> x </button></p>
-            </form>
-        </span>
-    {% endfor %}
-</div>
-
-<div id="display-done-list">
-    {% for task in done_tasks %}
-        <span>
-            <form action="/todo" id="done-task">
-                {% csrf_token %}
-                <p>{{task.task_text}}</p>
-            </form>
-        </span>
-    {% endfor %}
-</div>
 
 <div>
-    {% for task in tasks %}
-
-    {% if task.completed %}
-        <form action="/todo_response" id="undone-task" method="POST">
+    notdone-tasks = Task.objects.get(completed=False)
+    {% for task in notdone-tasks %}
+        <span>
+        <form action="/todo" id="undone-task">
             {% csrf_token %}
             <p>{{task.task_text}}
                 <button type="submit" value = True> ✔ </button>
-                <button type="submit" value = False> x </button>
-            </p>
+                <button type="submit" value = False> x </button></p>
         </form>
-
-    {% else %}
-        <form action="/todo" id="done-task" method="POST">
-            {% csrf_token %}
-            <p>{{task.task_text}}
-            </p>
-        </form>
-    {% endif %}
+        </span>
     {% endfor %}
-</div>
-
+</div> -->
 
 {% endblock content %}
 
