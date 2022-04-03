@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
 {% load custom_tags %}
+{% load static %}
 
 {% block header-content%}
-
+    <link rel="stylesheet" href="{% static 'styles/calendar.css' %}">
+    <script src={% static 'scripts/calendar.js' %}></script>
 {% endblock header-content%}
 
 
 {% block content %}
+
 <h1>Calendar</h1>
 <table>
     <tr>

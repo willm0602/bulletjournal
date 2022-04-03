@@ -1,20 +1,22 @@
 {% extends 'base.html' %}
 {% load custom_tags %}
+{% load static %}
+
 
 {% block header-content%}
-
+    <link rel="stylesheet" href="{% static 'styles/habit.css' %}">
 {% endblock header-content%}
 
 
 {% block content %}
-    <h1>Habit Tracker</h1>
+    <h1 id="habit-label">Habit Tracker</h1>
     <form action="/api/new-habit" method="POST">
         {% csrf_token %}
         <input type="hidden" name="access" value="{{access}}">
         <input type="text" name="name" id="name">
-        <input type="submit" value="Submit">
+        <input type="submit" id="new-habit-btn" value="✔">
     </form>
-    <table>
+    <table id="habit-table">
         <!--Header row-->
         <tr>
             <th></th>
@@ -25,7 +27,7 @@
     
         {% for habit in habits %}
         <tr>
-            <td>{{habit.name}}</td>
+            <th>{{habit.name}}</th>
             {% for day in days|reversed %}
             <td>
                 {% if habit|contains_date:day %}

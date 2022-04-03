@@ -1,0 +1,29 @@
+#habit-label{
+    color: var(--site-blue-4);
+}
+
+th{
+    color: var(--site-blue-3);
+}
+
+#habit-table{
+    width: 80%;
+    margin: 5%;
+}
+
+#name{
+    background-color: transparent;
+    border-style: solid;
+    text-align: center;
+    border-radius: 20px;
+}
+
+#new-habit-btn{
+    border-style: none;
+    background-color: transparent;
+}
+
+#new-habit-btn:hover{
+    color: white;
+    cursor: pointer;
+}
