@@ -17,6 +17,13 @@ def todo_add(req: HttpRequest):
     context = {"tasks": tasks}
     return render(req, "todolist.html", context)
 
+def get_cal(req: HttpRequest):
+    return render(req, "calendar.html")
+
+# def mark_done(req: HttpRequest):
+#     req.GET.get(tasks)
+#     return render(req, "todolist.html")
+
 # def todo_list(request, task_id):
 #     task = get_object_or_404(Task, pk=task_id)
 

@@ -8,17 +8,25 @@
     --site-blue-5: #122B2B;
 }
 
-h1 { color: --site-blue-2; font-family: 'Helvetica Neue', sans-serif; font-size: 50px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; }
+h1 { color: --site-blue-2; font-family: 'Helvetica Neue', sans-serif; font-size: 50px; font-weight: bold;  text-align: center; }
 
 
-h2 { color: --site-blue-5; font-family: 'Helvetica Neue', sans-serif; font-size: 30px; font-weight: 300; line-height: 32px; margin: 0 0 72px; text-align: center; }
+h2 { color: --site-blue-5; font-family: 'Helvetica Neue', sans-serif; font-size: 30px; font-weight: 300; text-align: center; }
 
 
-p { color: --site-blue-4; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; line-height: 24px; margin: 0 0 24px; text-align: justify; text-justify: inter-word; }
+p { color: --site-blue-4; font-family: 'Helvetica Neue', sans-serif; font-size: 30px; text-align: center; text-justify: inter-word; }
 
 body{
-    color: --site-blue-5; font-family: 'Helvetica Neue', sans-serif; font-size: 30px; font-weight: 300; line-height: 32px; margin: 0 0 72px; text-align: center;
+    color: --site-blue-5; font-family: 'Helvetica Neue', sans-serif; font-size: 30px; font-weight: 300;  text-align: center;
     background-color: var(--site-blue-1);
+}
+
+.checkbox {
+    border-style: dashed
+}
+
+foot {
+    font-size: medium;
 }
 
 /* No bullet points on list */
@@ -36,4 +44,10 @@ button {
     border-style: none;
     color: var(--site-blue-5);
     background-color: transparent;
+    color: --site-blue-2; font-family: 'Helvetica Neue', sans-serif; font-size: 20px; font-weight: bold;  text-align: center;
+}
+
+
+form {
+    vertical-align: middle;
 }
