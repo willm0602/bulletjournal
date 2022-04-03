@@ -40,9 +40,6 @@
     {% endfor %}
 </div>
 
-
-
-
 <div>
     {% for task in tasks %}
 
@@ -59,8 +56,6 @@
         <form action="/todo" id="done-task" method="POST">
             {% csrf_token %}
             <p>{{task.task_text}}
-                <button type="submit" value = True> ✔ </button>
-                <button type="submit" value = False> x </button>
             </p>
         </form>
     {% endif %}
