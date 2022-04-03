@@ -21,6 +21,16 @@ def todo_add(req: HttpRequest):
     context = {"tasks":tasks}
     return render(req, "todolist.html", context)
 
+    
+def todo_response(req: HttpRequest):
+    
+    # if the form submits to True -> 
+    # change the completed field for the task
+
+
+    return render(req, "/todo")
+
+
 # def mark_done(req: HttpRequest):
 #     req.GET.get(tasks)
 #     return render(req, "todolist.html")
