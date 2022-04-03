@@ -12,9 +12,10 @@ def home(req: HttpRequest):
     })
 
 def todo_add(req: HttpRequest):
-    tasks = Task.objects.all()
-    print(tasks)
-    context = {"tasks": tasks}
+    done_tasks = Task.objects.filter(completed=True)
+    undone_tasks = Task.objects.filter(completed=False)
+    # print(tasks)
+    context = {"undone_tasks": undone_tasks, "done_tasks": done_tasks}
     return render(req, "todolist.html", context)
 
 def get_cal(req: HttpRequest):
