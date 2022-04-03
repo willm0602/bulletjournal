@@ -51,3 +51,11 @@ button {
 form {
     vertical-align: middle;
 }
+
+#done-task {
+    color:gray
+}
+
+#undone-task {
+    color:#122B2B
+}

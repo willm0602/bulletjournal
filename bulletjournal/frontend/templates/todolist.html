@@ -19,11 +19,8 @@
 <div id="display-undone-list">
     {% for task in undone_tasks %}
         <span>
-            <!-- <button id="task">{{task.task_text}}</button> -->
-            <!-- <input type="checkbox" name="checkbox">
-            <label for="checkbox">{{task.task_text}}</label> -->
-            <!-- <a href="/todo_add"> {{task.task_text}}</a> -->
-            <form action="/todo_add">
+            <form action="/todo" id="undone-task">
+                {% csrf_token %}
                 <p>{{task.task_text}}
                     <button type="submit" value = True> ✔ </button>
                     <button type="submit" value = False> x </button></p>
@@ -35,8 +32,38 @@
 <div id="display-done-list">
     {% for task in done_tasks %}
         <span>
-            <a style="text-decoration: none" href="/todo_add"> {{task.task_text}}</a>
+            <form action="/todo" id="done-task">
+                {% csrf_token %}
+                <p>{{task.task_text}}</p>
+            </form>
         </span>
+    {% endfor %}
+</div>
+
+
+
+
+<div>
+    {% for task in tasks %}
+
+    {% if task.completed %}
+        <form action="/todo_response" id="undone-task" method="POST">
+            {% csrf_token %}
+            <p>{{task.task_text}}
+                <button type="submit" value = True> ✔ </button>
+                <button type="submit" value = False> x </button>
+            </p>
+        </form>
+
+    {% else %}
+        <form action="/todo" id="done-task" method="POST">
+            {% csrf_token %}
+            <p>{{task.task_text}}
+                <button type="submit" value = True> ✔ </button>
+                <button type="submit" value = False> x </button>
+            </p>
+        </form>
+    {% endif %}
     {% endfor %}
 </div>
 
@@ -56,3 +83,5 @@
     </span>
 </div>
 {% endblock foot-content %}
+
+
