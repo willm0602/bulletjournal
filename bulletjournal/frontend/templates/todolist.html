@@ -1,14 +1,17 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block header-content%}
-<h1> Welcome to your personal to-do list! </h1>
+<link rel="stylesheet" href="{% static 'styles/todo.css' %}">
 {% endblock header-content%}
 
 
 {% block content %}
+
+<h1> Welcome to your personal to-do list! </h1>
 <!-- form for adding new item to to-do list -->
 <div id="add-todo-form">
-    <form action="/api/new_todo_item" method="POST">
+    <form action="/api/new_todo_item"  method="POST">
         {% csrf_token %}
         <input type="text" name="task_name" id="task_name" placeholder="enter new task...">
         <button type="submit">+</button>
@@ -18,18 +21,40 @@
 </div>
 
 <div>
-    notdone-tasks = Task.objects.get(completed=False)
-    {% for task in notdone-tasks %}
-        <span>
-        <form action="/todo" id="undone-task">
-            {% csrf_token %}
-            <p>{{task.task_text}}
-                <button type="submit" value = True> ✔ </button>
-                <button type="submit" value = False> x </button></p>
-        </form>
-        </span>
+    {% for task in notdone_tasks%}
+        <div class="task">
+            <p>{{task.task_text}}</p>
+            <form action="/api/todo_complete" id="undone-task" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="task" value="{{task.id}}">
+                <input class="todo-submit" type="submit" value = ✔>
+            </form>
+    
+            <form action="/api/todo_delete" id="undone-task" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="task" value="{{task.id}}">
+                <input class="todo-submit" type="submit" value = ✖>
+            </form>
+        </div>
+       
     {% endfor %}
-</div> -->
+    {% for task in done_tasks %}
+        <div class="task">
+            <p style="color:gray;">{{task.task_text}}</p>
+            <form action="/api/todo_reopen" class="task" id="undone-task" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="task" value="{{task.id}}">
+                <input class="todo-submit" type="submit" value = 🔄>
+            </form>
+
+            <form action="/api/todo_delete" class="task" id="undone-task" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="task" value="{{task.id}}">
+                <input class="todo-submit" type="submit" value = ✖>
+            </form>
+        </div>
+    {% endfor %}
+</div>
 
 {% endblock content %}
 

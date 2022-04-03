@@ -107,3 +107,29 @@ def signout(req: HttpRequest):
     if "access" in req.session.keys():
         del req.session["access"]
     return redirect("/")
+
+
+def todo_complete(req: HttpRequest):
+    data = req.POST
+    task = data.get('task')
+    task: Task = Task.objects.get(id=task)
+    task.completed = True
+    task.save()
+    return redirect("/todo")
+
+
+def reopen_task(req: HttpRequest):
+    data = req.POST
+    task = data.get('task')
+    task: Task = Task.objects.get(id=task)
+    task.completed = False
+    task.save()
+    return redirect("/todo")
+
+
+def todo_remove(req: HttpRequest):
+    data = req.POST
+    task = data.get('task')
+    task: Task = Task.objects.get(id=task)
+    task.delete()
+    return redirect("/todo")

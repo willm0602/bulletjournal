@@ -10,4 +10,7 @@ urlpatterns = [
     path("add_date", views.habit_add_date),
     path("remove_date", views.habit_remove_date),
     path("signout", views.signout),
+    path("todo_complete", views.todo_complete),
+    path("todo_delete", views.todo_remove),
+    path("todo_reopen", views.reopen_task)
 ]

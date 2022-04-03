@@ -16,9 +16,9 @@ def home(req: HttpRequest):
 
 
 def todo_add(req: HttpRequest):
-    tasks = Task.objects.all()
-    # print(tasks)
-    context = {"tasks":tasks}
+    notdone_tasks = Task.objects.filter(completed=False)
+    done_tasks = Task.objects.filter(completed=True)
+    context = {"done_tasks": done_tasks, "notdone_tasks": notdone_tasks}
     return render(req, "todolist.html", context)
 
     
