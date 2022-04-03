@@ -17,26 +17,20 @@ def home(req: HttpRequest):
 
 def todo_add(req: HttpRequest):
     tasks = Task.objects.all()
-    print(tasks)
-    context = {"tasks": tasks}
+    # print(tasks)
+    context = {"tasks":tasks}
     return render(req, "todolist.html", context)
 
+def get_cal(req: HttpRequest):
+    return render(req, "calendar.html")
+
+# def mark_done(req: HttpRequest):
+#     req.GET.get(tasks)
+#     return render(req, "todolist.html")
 
 # def todo_list(request, task_id):
 #     task = get_object_or_404(Task, pk=task_id)
 
-## View examples from poll project
-# def index(request):
-#     return HttpResponse("Hello, world. You're at the polls index.")
-
-# # Create your views here.
-# def detail(request, question_id):
-#     question = get_object_or_404(Question, pk=question_id)
-#     return render(request, 'polls/detail.html', {'question': question})
-
-# def results(request, question_id):
-#     question = get_object_or_404(Question, pk=question_id)
-#     return render(request, 'polls/results.html', {'question': question})
 
 
 def signup(req: HttpRequest):

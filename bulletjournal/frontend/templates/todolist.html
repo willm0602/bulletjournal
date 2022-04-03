@@ -10,17 +10,78 @@
 <div id="add-todo-form">
     <form action="/api/new_todo_item" method="POST">
         {% csrf_token %}
-        <input type="text" name="task_name" id="task_name" placeholder="Enter new task...">
+        <input type="text" name="task_name" id="task_name" placeholder="enter new task...">
         <button type="submit">+</button>
     </form>
+    <!-- <br>
+    <br> -->
 </div>
-<div id="display-list">
-    {% for task in tasks %}
+<div id="display-undone-list">
+    {% for task in undone_tasks %}
         <span>
-            {{task.task_text}}
+            <form action="/todo" id="undone-task">
+                {% csrf_token %}
+                <p>{{task.task_text}}
+                    <button type="submit" value = True> ✔ </button>
+                    <button type="submit" value = False> x </button></p>
+            </form>
+        </span>
+    {% endfor %}
+</div>
+
+<div id="display-done-list">
+    {% for task in done_tasks %}
+        <span>
+            <form action="/todo" id="done-task">
+                {% csrf_token %}
+                <p>{{task.task_text}}</p>
+            </form>
         </span>
     {% endfor %}
 </div>
 
 
+
+
+<div>
+    {% for task in tasks %}
+
+    {% if task.completed %}
+        <form action="/todo_response" id="undone-task" method="POST">
+            {% csrf_token %}
+            <p>{{task.task_text}}
+                <button type="submit" value = True> ✔ </button>
+                <button type="submit" value = False> x </button>
+            </p>
+        </form>
+
+    {% else %}
+        <form action="/todo" id="done-task" method="POST">
+            {% csrf_token %}
+            <p>{{task.task_text}}
+                <button type="submit" value = True> ✔ </button>
+                <button type="submit" value = False> x </button>
+            </p>
+        </form>
+    {% endif %}
+    {% endfor %}
+</div>
+
+
 {% endblock content %}
+
+{% block foot-content %}
+<div id="navigation">
+    <span>
+        <a href = "/">go to home</a>
+        <br>
+        <!-- <a href = "/todo">go to todo list</a> -->
+        <!-- <br> -->
+        <a href = "/habits">go to habit tracker</a>
+        <br>
+        <a href = "/cal">go to calendar</a>
+    </span>
+</div>
+{% endblock foot-content %}
+
+
