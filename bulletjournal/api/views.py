@@ -1,7 +1,7 @@
 from os import access
 from django.http import HttpRequest
 from django.shortcuts import get_object_or_404, redirect
-
+from frontend.utils import string_to_date_format
 from .utils import random_str
 from .models import Habit, User, Task
 
@@ -80,4 +80,28 @@ def new_todo_item(req: HttpRequest):
     # access_token = random_str(128)
     # req.session["access"] = access_token
 
+    
+def habit_add_date(req: HttpRequest):
+    data = req.POST
+    day = data.get('day')
+    day = string_to_date_format(day)
+    habit_id = data.get('habit')
+    habit_id = int(habit_id)
+    
+    habit = get_object_or_404(Habit, id=habit_id)
+    habit.add_date(day)
+    habit.save()
+    return redirect('/habits')
+
+def habit_remove_date(req: HttpRequest):
+    data = req.POST
+    day = data.get('day')
+    day = string_to_date_format(day)
+    habit_id = data.get('habit')
+    habit_id = int(habit_id)
+    
+    habit = get_object_or_404(Habit, id=habit_id)
+    habit.remove_date(day)
+    habit.save()
+    return redirect('/habits')
     

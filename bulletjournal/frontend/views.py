@@ -1,7 +1,8 @@
 from os import access
 from django.http import HttpRequest
-from django.shortcuts import render
-from api.models import Habit, Task
+from django.shortcuts import get_object_or_404, render
+from api.models import Habit, Task, User
+from .utils import get_last_days
 
 # Create your views here.
 def home(req: HttpRequest):
@@ -40,5 +41,9 @@ def login(req: HttpRequest):
 
 def habit_tracker(req: HttpRequest):
     access = req.session.get('access')
-    context = {"access": access}
+    user = User.objects.get(access_token=access)
+    habits = Habit.objects.filter(user=user)
+    days = get_last_days(7)
+    context = {"access": access, "habits": habits, "days": days}
+    print(days)
     return render(req, "habits.html", context)
